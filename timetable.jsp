@@ -1,49 +1,64 @@
-<%-- 
-    Document   : fee
-    Created on : Dec 16, 2025, 3:28:58 PM
-    Author     : admin
---%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Student Fees</title>
-        <link rel="stylesheet" href="styles/generic.css"> <!-- This line links your CSS file -->
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Fees</title>
+</head>
+<body>
+<c:choose>
+    <c:when test="${sessionScope.role eq 'student' && fee.paid eq 'false'}">
+        <div class="empty-state">
+            <div class="empty-state-icon">📭</div>
+            <h3>You cannot view this page due to unpaid fees</h3>
+        </div>
+    </c:when>
+    <c:otherwise>
         <table border="1">
-            <tr>
-                <th></th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-                <th>Sunday</th>
-            </tr>
-
-        <%
-            for (int period = 1; period <= 16; period++) {
-        %>
-            <tr>
-                <td>Period <%= period %></td>
-
-                <%
-                    for (int day = 1; day <= 7; day++) {
-                %>
-                    <td>
-                        <!-- subject goes here -->
-                    </td>
-                <%
-                    }
-                %>
-            </tr>
-        <%
-            }
-        %>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="period" begin="1" end="16">
+                    <tr>
+                        <td><strong>Period ${period}</strong></td>
+                        <c:forEach var="day" begin="1" end="7">
+                            <td>
+                                <c:forEach var="entry" items="${timetableList}">
+                                    <c:if test="${day == entry.day && param.period >= entry.startTime && period <= entry.endTime && entry.dayOfWeek == day}">
+                                        <c:choose>
+                                            <c:when test="${sessionScope.role eq 'admin'}">
+                                                <div class="empty-state">
+                                                    <a href="section?action=edit&id=${staff.id}" class="btn btn-secondary">Room: ${entry.room_name}</a>
+                                                </div>
+                                            </c:when>
+                                            <c:otherwise>
+                                                Room: ${entry.room_name}
+                                            </c:otherwise>
+                                        </c:choose>
+                                        ${entry.subject}<br/>
+                                        ${entry.teacherName}
+                                    </c:if>
+                                </c:forEach>
+                            </td>
+                        </c:forEach>
+                    </tr>
+                </c:forEach>
+            </tbody>
         </table>
-    </body>
+    </c:otherwise>
+</c:choose>
+</body>
 </html>

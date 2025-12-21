@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student List - MVC</title>
-    <link rel="stylesheet" href="styles/generic.css"> <!-- This line links your CSS file -->
+    <link rel="stylesheet" href="styles/lists.css"> 
 </head>
 <body>
      <!-- Navigation Bar -->

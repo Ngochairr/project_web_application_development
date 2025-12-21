@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Fees</title>
+    <link rel="stylesheet" href="styles/timetable.css"> 
 </head>
 <body>
 <c:choose>

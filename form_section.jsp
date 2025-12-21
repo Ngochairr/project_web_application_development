@@ -10,6 +10,7 @@
     <head>
          <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/forms.css">
     <title>
         <c:choose>
             <c:when test="${student != null}">Edit Student</c:when>
@@ -190,7 +191,7 @@
             <div class="button-group">
                 <button type="submit" class="btn btn-primary">
                     <c:choose>
-                        <c:when test="${student != null}">💾 Update Section</c:when>
+                        <c:when test="${section != null}">💾 Update Section</c:when>
                         <c:otherwise>➕ Add Section</c:otherwise>
                     </c:choose>
                 </button>

@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="styles/dáhboard.css">
 </head>
 <body>
     <!-- Navigation Bar -->

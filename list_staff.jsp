@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Student Fees</title>
-        <link rel="stylesheet" href="styles/generic.css"> <!-- This line links your CSS file -->
+        <link rel="stylesheet" href="styles/lists.css"> 
     </head>
     <body>
         <!-- Fee Table -->

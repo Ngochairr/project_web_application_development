@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Student Management System</title>
-    <link rel="stylesheet" href="styles/generic.css"> <!-- This line links your CSS file -->
+    <link rel="stylesheet" href="styles/login.css"> <!-- This line links your CSS file -->
 </head>
 <body>
     <div class="login-container">

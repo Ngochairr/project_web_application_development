@@ -28,13 +28,13 @@
                             </th>
                             <th>
                                 <a href="staff?action=sort&sortBy=staff_name&order=${sortBy=='staff_name' && order=='asc' ? 'desc' : 'asc'}">
-                                    Fee Name
+                                    Staff Name
                                     <c:if test="${sortBy=='staff_name'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>
                                 <a href="staff?action=sort&sortBy=salary_amount&order=${sortBy=='salary_amount' && order=='asc' ? 'desc' : 'asc'}">
-                                    Fee Value
+                                    StafF Salary Value
                                     <c:if test="${sortBy=='salary_amount'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>

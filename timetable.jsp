@@ -17,6 +17,18 @@
         </div>
     </c:when>
     <c:otherwise>
+        <form method="get">
+            <label for="week"><strong>Select Week:</strong></label>
+            <select name="week" id="week" onchange="this.form.submit()">
+                <c:forEach var="w" begin="1" end="22">
+                    <option value="${w}" ${param.week == w ? 'selected' : ''}>
+                        Week ${w}
+                    </option>
+                </c:forEach>
+            </select>
+        </form>
+
+        <c:set var="week" value="${empty param.week ? 1 : param.week}" />
         <table border="1">
             <thead>
                 <tr>
@@ -37,25 +49,23 @@
                         <c:forEach var="day" begin="1" end="7">
                             <td>
                                 <c:forEach var="entry" items="${timetableList}">
-                                    <c:if test="${day == entry.day && param.period >= entry.startTime && period <= entry.endTime && entry.dayOfWeek == day}">
-                                        <c:choose>
-                                            <c:when test="${sessionScope.role eq 'admin'}">
-                                                <div class="empty-state">
-                                                    <a href="section?action=edit&id=${staff.id}" class="btn btn-secondary">Room: ${entry.room_name}</a>
-                                                </div>
-                                            </c:when>
-                                            <c:otherwise>
-                                                Room: ${entry.room_name}
-                                            </c:otherwise>
-                                        </c:choose>
+                                    <c:if test="${day == entry.day
+                                        && period >= entry.startTime
+                                        && period <= entry.endTime
+                                        && entry.startWeek <= week
+                                        && entry.endWeek >= week}">
+                                        Room: ${entry.room_name}<br/>
                                         ${entry.subject}<br/>
-                                        ${entry.teacherName}
+                                        ${entry.teacherName}<br/>
+                                        ${entry.sectionname}<br/>
+                                        ${entry.classname}
                                     </c:if>
                                 </c:forEach>
                             </td>
                         </c:forEach>
                     </tr>
                 </c:forEach>
+
             </tbody>
         </table>
     </c:otherwise>

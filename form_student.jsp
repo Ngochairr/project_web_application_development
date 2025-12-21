@@ -59,21 +59,6 @@
                 </c:if>
             </div>
             
-             <!-- Section ID -->
-            <div class="form-group">
-                <label for="studentsection">
-                    Full Name <span class="required">*</span>
-                </label>
-                <input type="text" 
-                       id="studentsection" 
-                       name="studentsection" 
-                       value="${student.studentsection}" 
-                       required 
-                       placeholder="Enter Section">
-                <c:if test="${not empty errorName}">
-                    <span class="error">${errorName}</span>
-                </c:if>
-            </div>
             <!-- Full Name -->
             <div class="form-group">
                 <label for="fullName">
@@ -90,23 +75,6 @@
                 </c:if>
             </div>
                 
-            <!-- Class ID -->
-            <div class="form-group">
-                <label for="class">
-                    Full Name <span class="required">*</span>
-                </label>
-                <input type="text" 
-                       id="class" 
-                       name="class" 
-                       value="${student.class}" 
-                       required 
-                       placeholder="Enter Class">
-                <c:if test="${not empty errorName}">
-                    <span class="error">${errorName}</span>
-                </c:if>
-            </div>
-
-
             <!-- Buttons -->
             <div class="button-group">
                 <button type="submit" class="btn btn-primary">

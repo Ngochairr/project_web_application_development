@@ -109,11 +109,6 @@
                                     <c:if test="${sortBy=='roll'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
-                            <th>
-                                <a href="student?action=sort&sortBy=studentsection&order=${sortBy=='studentsection' && order=='asc' ? 'desc' : 'asc'}">
-                                    Code
-                                    <c:if test="${sortBy=='studentsection'}">${order=='asc' ? '▲' : '▼'}</c:if>
-                                </a>
                             </th>
                             <th>
                                 <a href="student?action=sort&sortBy=fullName&order=${sortBy=='fullName' && order=='asc' ? 'desc' : 'asc'}">
@@ -121,22 +116,14 @@
                                     <c:if test="${sortBy=='fullName'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
-                            <th>
-                                <a href="student?action=sort&sortBy=section&order=${sortBy=='section' && order=='asc' ? 'desc' : 'asc'}">
-                                    Email
-                                    <c:if test="${sortBy=='section'}">${order=='asc' ? '▲' : '▼'}</c:if>
-                                </a>
-                            </th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="student" items="${students}">
+                        <c:forEach var="student" items="${student}">
                             <tr>
                                 <td>${student.roll}</td>
-                                <td>${student.studentsection}</td>
                                 <td>${student.fullName}</td>
-                                <td>${student.class}</td>
                                     <c:if test="${sessionScope.role eq 'admin'}">
                                         <td>
                                             <div class="actions">

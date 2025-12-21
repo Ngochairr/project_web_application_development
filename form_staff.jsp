@@ -13,7 +13,7 @@
     <title>
         <c:choose>
             <c:when test="${staff != null}">Edit Staff</c:when>
-            <c:otherwise>Add New Student</c:otherwise>
+            <c:otherwise>Add New Staff</c:otherwise>
         </c:choose>
     </title>
     </head>
@@ -22,10 +22,10 @@
         <h1>
             <c:choose>
                 <c:when test="${staff != null}">
-                    ✏️ Edit Student
+                    ✏️ Edit Staff
                 </c:when>
                 <c:otherwise>
-                    ➕ Add New Student
+                    ➕ Add New Staff
                 </c:otherwise>
             </c:choose>
         </h1>
@@ -45,40 +45,24 @@
             <!-- Staff ID -->
             <div class="form-group">
                 <label for="id">
-                    Student Code <span class="required">*</span>
+                    Staff ID <span class="required">*</span>
                 </label>
                 <input type="text" 
                        id="id" 
                        name="id" 
                        value="${staff.id}" 
                        <c:if test="${staff != null}">readonly</c:if> 
-                       placeholder="e.g., SV001, IT123">
-                <p class="info-text">Format: 2 letters + 3+ digits</p>
-                <c:if test="${not empty errorCode}">
-                    <span class="error">${errorCode}</span>
-                </c:if>
-            </div>
-
-            <!-- Staff Role -->
-            <div class="form-group">
-                <label for="staff_role">
-                    Full Name <span class="required">*</span>
-                </label>
-                <input type="text" 
-                       id="staff_role" 
-                       name="staff_role" 
-                       value="${staff.staff_role}" 
-                       required 
-                       placeholder="Enter Role">
-                <c:if test="${not empty errorName}">
-                    <span class="error">${errorName}</span>
+                       placeholder="e.g., S001, S123">
+                <p class="info-text">Format: S + 3 digits</p>
+                <c:if test="${not empty errorStaffID}">
+                    <span class="error">${errorStaffID}</span>
                 </c:if>
             </div>
 
             <!-- Staff Name -->
             <div class="form-group">
                 <label for="staff_name">
-                    Email <span class="required">*</span>
+                    Staff Name <span class="required">*</span>
                 </label>
                 <input type="staff_name" 
                        id="staff_name" 
@@ -86,14 +70,14 @@
                        value="${staff.staff_name}" 
                        required 
                        placeholder="Enter Full Name">
-                <c:if test="${not empty errorEmail}">
-                    <span class="error">${errorEmail}</span>
+                <c:if test="${not empty errorStaffName}">
+                    <span class="error">${errorStaffName}</span>
                 </c:if>
             </div>
             <!-- Staff Salary -->
             <div class="form-group">
                 <label for="staff_salary">
-                    Email <span class="required">*</span>
+                    Staff's Salary <span class="required">*</span>
                 </label>
                 <input type="staff_salary" 
                        id="staff_salary" 
@@ -101,16 +85,16 @@
                        value="${staff.staff_salary}" 
                        required 
                        placeholder="Enter Full Name">
-                <c:if test="${not empty errorEmail}">
-                    <span class="error">${errorEmail}</span>
+                <c:if test="${not empty errorStaffSalary}">
+                    <span class="error">${errorStaffSalary}</span>
                 </c:if>
             </div>
             <!-- Buttons -->
             <div class="button-group">
                 <button type="submit" class="btn btn-primary">
                     <c:choose>
-                        <c:when test="${student != null}">💾 Update Student</c:when>
-                        <c:otherwise>➕ Add Student</c:otherwise>
+                        <c:when test="${staff != null}">💾 Update Staff</c:when>
+                        <c:otherwise>➕ Add Staff</c:otherwise>
                     </c:choose>
                 </button>
                 <a href="staff?action=list" class="btn btn-secondary">❌ Cancel</a>

@@ -52,10 +52,10 @@
                        name="feeID" 
                        value="${fee.id}" 
                        <c:if test="${fee != null}">readonly</c:if> 
-                       placeholder="e.g., SV001, IT123">
-                <p class="info-text">Format: 2 letters + 3+ digits</p>
-                <c:if test="${not empty errorCode}">
-                    <span class="error">${errorCode}</span>
+                       placeholder="e.g., F001, F123">
+                <p class="info-text">Format: F + 3 digits</p>
+                <c:if test="${not empty errorFeeCode}">
+                    <span class="error">${errorFeeCode}</span>
                 </c:if>
             </div>
 
@@ -67,11 +67,11 @@
                 <input type="text" 
                        id="FeeStudent" 
                        name="FeeStudent" 
-                       value="${fee.Student}" 
+                       value="${fee.student}" 
                        required 
                        placeholder="Enter full name">
-                <c:if test="${not empty errorName}">
-                    <span class="error">${errorName}</span>
+                <c:if test="${not empty errorFeeStudent}">
+                    <span class="error">${errorFeeStudent}</span>
                 </c:if>
             </div>
 
@@ -86,8 +86,8 @@
                        value="${fee.fee_name}" 
                        required 
                        placeholder="student@example.com">
-                <c:if test="${not empty errorEmail}">
-                    <span class="error">${errorEmail}</span>
+                <c:if test="${not empty errorFeeName}">
+                    <span class="error">${errorFeeName}</span>
                 </c:if>
             </div>
             <!-- Fee Value -->
@@ -101,8 +101,8 @@
                        value="${fee.fee_value}" 
                        required 
                        placeholder="student@example.com">
-                <c:if test="${not empty errorEmail}">
-                    <span class="error">${errorEmail}</span>
+                <c:if test="${not empty errorFeeValue}">
+                    <span class="error">${errorFeeValue}</span>
                 </c:if>
             </div>
             <!-- Fee Expiration -->
@@ -116,8 +116,8 @@
                        value="${fee.fee_expiration}" 
                        required 
                        placeholder="student@example.com">
-                <c:if test="${not empty errorEmail}">
-                    <span class="error">${errorEmail}</span>
+                <c:if test="${not empty errorFeeExpiration}">
+                    <span class="error">${errorFeeExpiration}</span>
                 </c:if>
             </div>
             <!-- Fee Paid -->
@@ -131,8 +131,8 @@
                     value="true"
                     <c:if test="${fee.fee_paid}">checked</c:if>
                     required>
-                <c:if test="${not empty errorEmail}">
-                    <span class="error">${errorEmail}</span>
+                <c:if test="${not empty errorFeePaid}">
+                    <span class="error">${errorFeePaid}</span>
                 </c:if>
             </div>
 
@@ -140,8 +140,8 @@
             <div class="button-group">
                 <button type="submit" class="btn btn-primary">
                     <c:choose>
-                        <c:when test="${student != null}">💾 Update Student</c:when>
-                        <c:otherwise>➕ Add Student</c:otherwise>
+                        <c:when test="${fee != null}">💾 Update Fee</c:when>
+                        <c:otherwise>➕ Add Fee</c:otherwise>
                     </c:choose>
                 </button>
                 <a href="fee?action=list" class="btn btn-secondary">❌ Cancel</a>

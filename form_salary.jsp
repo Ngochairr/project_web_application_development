@@ -38,10 +38,10 @@
                        name="salary_id" 
                        value="${salary.id}" 
                        <c:if test="${salary != null}">readonly</c:if> 
-                       placeholder="e.g., SV001, IT123">
-                <p class="info-text">Format: 2 letters + 3+ digits</p>
-                <c:if test="${not empty errorCode}">
-                    <span class="error">${errorCode}</span>
+                       placeholder="e.g., SS001, SS23">
+                <p class="info-text">Format: SS + 3 digits</p>
+                <c:if test="${not empty errorSalaryID}">
+                    <span class="error">${errorSalaryID}</span>
                 </c:if>
             </div>
 
@@ -56,8 +56,8 @@
                        value="${salary.staffid}" 
                        required 
                        placeholder="Enter full name">
-                <c:if test="${not empty errorName}">
-                    <span class="error">${errorName}</span>
+                <c:if test="${not empty errorSalaryStaff}">
+                    <span class="error">${errorSalaryStaff}</span>
                 </c:if>
             </div>
 
@@ -72,8 +72,8 @@
                        value="${salary.salary_amount}" 
                        required 
                        placeholder="student@example.com">
-                <c:if test="${not empty errorEmail}">
-                    <span class="error">${errorEmail}</span>
+                <c:if test="${not empty errorSalaryAmount}">
+                    <span class="error">${errorSalaryAmount}</span>
                 </c:if>
             </div>
             <!-- Payment Date -->
@@ -87,8 +87,8 @@
                        value="${salary.date}" 
                        required 
                        placeholder="student@example.com">
-                <c:if test="${not empty errorEmail}">
-                    <span class="error">${errorEmail}</span>
+                <c:if test="${not empty errorSalaryDate}">
+                    <span class="error">${errorSalaryDate}</span>
                 </c:if>
             </div>
             <!-- Buttons -->

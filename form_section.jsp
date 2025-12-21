@@ -6,8 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
          <meta charset="UTF-8">
@@ -24,10 +22,10 @@
         <h1>
             <c:choose>
                 <c:when test="${student != null}">
-                    ✏️ Edit Student
+                    ✏️ Edit Section
                 </c:when>
                 <c:otherwise>
-                    ➕ Add New Student
+                    ➕ Add New Section
                 </c:otherwise>
             </c:choose>
         </h1>
@@ -35,86 +33,165 @@
         <form action="student" method="POST">
             <!-- Hidden field for action -->
             <c:choose>
-                <c:when test="${student != null}">
+                <c:when test="${section != null}">
                     <input type="hidden" name="action" value="update">
-                    <input type="hidden" name="id" value="${student.id}">
+                    <input type="hidden" name="id" value="${section.id}">
                 </c:when>
                 <c:otherwise>
                     <input type="hidden" name="action" value="insert">
                 </c:otherwise>
             </c:choose>
 
-            <!-- Student Roll -->
+            <!-- Section ID -->
             <div class="form-group">
                 <label for="roll">
-                    Student Code <span class="required">*</span>
+                    Section ID <span class="required">*</span>
                 </label>
                 <input type="text" 
-                       id="roll" 
-                       name="roll" 
-                       value="${student.roll}" 
-                       <c:if test="${student != null}">readonly</c:if> 
-                       placeholder="e.g., SV001, IT123">
-                <p class="info-text">Format: 2 letters + 3+ digits</p>
-                <c:if test="${not empty errorCode}">
-                    <span class="error">${errorCode}</span>
+                       id="sec_id" 
+                       name="sec_id" 
+                       value="${section.id}" 
+                       <c:if test="${section != null}">readonly</c:if> 
+                       placeholder="e.g., SE001, SE123">
+                <p class="info-text">Format: SE + 3 digits</p>
+                <c:if test="${not empty errorSectionID}">
+                    <span class="error">${errorSectionID}</span>
                 </c:if>
             </div>
             
-             <!-- Section ID -->
+             <!-- ROOM ID -->
             <div class="form-group">
                 <label for="studentsection">
-                    Full Name <span class="required">*</span>
+                    Room ID <span class="required">*</span>
                 </label>
                 <input type="text" 
-                       id="studentsection" 
-                       name="studentsection" 
-                       value="${student.studentsection}" 
+                       id="sec_room" 
+                       name="sec_room" 
+                       value="${section.room_id}" 
                        required 
-                       placeholder="Enter Section">
-                <c:if test="${not empty errorName}">
-                    <span class="error">${errorName}</span>
-                </c:if>
-            </div>
-            <!-- Full Name -->
-            <div class="form-group">
-                <label for="fullName">
-                    Full Name <span class="required">*</span>
-                </label>
-                <input type="text" 
-                       id="fullName" 
-                       name="fullName" 
-                       value="${student.fullName}" 
-                       required 
-                       placeholder="Enter full name">
-                <c:if test="${not empty errorName}">
-                    <span class="error">${errorName}</span>
+                       placeholder="Enter Room ID">
+                <c:if test="${not empty errorSectionRoom}">
+                    <span class="error">${errorSectionRoom}</span>
                 </c:if>
             </div>
                 
             <!-- Class ID -->
             <div class="form-group">
                 <label for="class">
-                    Full Name <span class="required">*</span>
+                    Class ID <span class="required">*</span>
                 </label>
                 <input type="text" 
-                       id="class" 
-                       name="class" 
-                       value="${student.class}" 
+                       id="sec_class" 
+                       name="sec_class" 
+                       value="${section.class_id}" 
                        required 
-                       placeholder="Enter Class">
-                <c:if test="${not empty errorName}">
-                    <span class="error">${errorName}</span>
+                       placeholder="Enter Class ID">
+                <c:if test="${not empty errorclass_id}">
+                    <span class="error">${errorclass_id}</span>
                 </c:if>
             </div>
-
+            
+                
+             <!-- Start Week -->
+            <div class="form-group">
+                <label for="class">
+                    First Week <span class="required">*</span>
+                </label>
+                <input type="text" 
+                       id="sec_sweek" 
+                       name="sec_sweek" 
+                       value="${section.start_week}" 
+                       required 
+                       placeholder="Enter Start Week">
+                <c:if test="${not empty errorstart_week}">
+                    <span class="error">${errorstart_week}</span>
+                </c:if>
+            </div>
+                
+                <!-- End Week -->
+            <div class="form-group">
+                <label for="class">
+                    Last Week <span class="required">*</span>
+                </label>
+                <input type="text" 
+                       id="sec_eweek" 
+                       name="sec_eweek" 
+                       value="${section.end_week}" 
+                       required 
+                       placeholder="Enter End Week">
+                <c:if test="${not empty errorend_week}">
+                    <span class="error">${errorend_week}</span>
+                </c:if>
+            </div>
+            
+                <!-- Start Time -->
+            <div class="form-group">
+                <label for="class">
+                    Start Time <span class="required">*</span>
+                </label>
+                <input type="text" 
+                       id="sec_stime" 
+                       name="sec_stime" 
+                       value="${section.start_week}" 
+                       required 
+                       placeholder="Enter Start Time">
+                <c:if test="${not empty errorstart_time}">
+                    <span class="error">${errorstart_time}</span>
+                </c:if>
+            </div>
+                
+                <!-- End Time -->
+            <div class="form-group">
+                <label for="class">
+                     End Time <span class="required">*</span>
+                </label>
+                <input type="text" 
+                       id="sec_etime" 
+                       name="sec_etime" 
+                       value="${section.end_week}" 
+                       required 
+                       placeholder="Enter End Time">
+                <c:if test="${not empty errorend_time}">
+                    <span class="error">${errorend_time}</span>
+                </c:if>
+            </div>
+             <!-- Day -->
+            <div class="form-group">
+                <label for="class">
+                    Day <span class="required">*</span>
+                </label>
+                <input type="text" 
+                       id="sec_day" 
+                       name="sec_day" 
+                       value="${section.day}" 
+                       required 
+                       placeholder="Enter Day of the week(Sunday is 1)">
+                <c:if test="${not empty errorsecday}">
+                    <span class="error">${errorsecday}</span>
+                </c:if>
+            </div>
+             <!-- Name -->
+            <div class="form-group">
+                <label for="class">
+                    Name <span class="required">*</span>
+                </label>
+                <input type="text" 
+                       id="sec_name" 
+                       name="sec_name" 
+                       value="${section.name}" 
+                       required 
+                       placeholder="Enter Name">
+                <c:if test="${not empty errorsecname}">
+                    <span class="error">${errorsecname}</span>
+                </c:if>
+            </div>
 
             <!-- Buttons -->
             <div class="button-group">
                 <button type="submit" class="btn btn-primary">
                     <c:choose>
-                        <c:when test="${student != null}">💾 Update Student</c:when>
-                        <c:otherwise>➕ Add Student</c:otherwise>
+                        <c:when test="${student != null}">💾 Update Section</c:when>
+                        <c:otherwise>➕ Add Section</c:otherwise>
                     </c:choose>
                 </button>
                 <a href="student?action=list" class="btn btn-secondary">❌ Cancel</a>

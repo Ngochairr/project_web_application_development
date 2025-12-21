@@ -104,39 +104,75 @@
                     <thead>
                         <tr>
                             <th>
-                                <a href="section?action=sort&sortBy=roll&order=${sortBy=='roll' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="section?action=sort&sortBy=roll&order=${sortBy=='id' && order=='asc' ? 'desc' : 'asc'}">
                                     ID
-                                    <c:if test="${sortBy=='roll'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='id'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>
-                                <a href="section?action=sort&sortBy=sectionsection&order=${sortBy=='sectionsection' && order=='asc' ? 'desc' : 'asc'}">
-                                    Code
-                                    <c:if test="${sortBy=='sectionsection'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                <a href="section?action=sort&sortBy=sectionsection&order=${sortBy=='room_id' && order=='asc' ? 'desc' : 'asc'}">
+                                    Room ID
+                                    <c:if test="${sortBy=='room_id'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>
-                                <a href="section?action=sort&sortBy=fullName&order=${sortBy=='fullName' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="section?action=sort&sortBy=fullName&order=${sortBy=='class_id' && order=='asc' ? 'desc' : 'asc'}">
+                                    Class ID
+                                    <c:if test="${sortBy=='class_id'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="section?action=sort&sortBy=section&order=${sortBy=='start_week' && order=='asc' ? 'desc' : 'asc'}">
+                                    First Week
+                                    <c:if test="${sortBy=='start_week'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="section?action=sort&sortBy=section&order=${sortBy=='end_week' && order=='asc' ? 'desc' : 'asc'}">
+                                    Last Week
+                                    <c:if test="${sortBy=='end_week'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                </a>
+                            </th>
+                            </th>
+                            <th>
+                                <a href="section?action=sort&sortBy=section&order=${sortBy=='start_time' && order=='asc' ? 'desc' : 'asc'}">
+                                    Start Time
+                                    <c:if test="${sortBy=='start_time'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="section?action=sort&sortBy=section&order=${sortBy=='end_time' && order=='asc' ? 'desc' : 'asc'}">
+                                    End Time
+                                    <c:if test="${sortBy=='end_time'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="section?action=sort&sortBy=section&order=${sortBy=='day' && order=='asc' ? 'desc' : 'asc'}">
+                                    Day
+                                    <c:if test="${sortBy=='day'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="section?action=sort&sortBy=section&order=${sortBy=='name' && order=='asc' ? 'desc' : 'asc'}">
                                     Name
-                                    <c:if test="${sortBy=='fullName'}">${order=='asc' ? '▲' : '▼'}</c:if>
-                                </a>
-                            </th>
-                            <th>
-                                <a href="section?action=sort&sortBy=section&order=${sortBy=='section' && order=='asc' ? 'desc' : 'asc'}">
-                                    Email
-                                    <c:if test="${sortBy=='section'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='name'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="section" items="${sections}">
+                        <c:forEach var="section" items="${section}">
                             <tr>
-                                <td>${section.roll}</td>
-                                <td>${section.sectionsection}</td>
-                                <td>${section.fullName}</td>
-                                <td>${section.class}</td>
+                                <td>${section.id}</td>
+                                <td>${section.room_id}</td>
+                                <td>${section.class_id}</td>
+                                <td>${section.start_week}</td>
+                                <td>${section.end_week}</td>
+                                <td>${section.start_time}</td>
+                                <td>${section.end_time}</td>
+                                <td>${section.day}</td>
+                                <td>${section.name}</td>
                                     <c:if test="${sessionScope.role eq 'admin'}">
                                         <td>
                                             <div class="actions">

@@ -27,12 +27,6 @@
                                 </a>
                             </th>
                             <th>
-                                <a href="staff?action=sort&sortBy=student&order=${sortBy=='staff_role' && order=='asc' ? 'desc' : 'asc'}">
-                                    Student
-                                    <c:if test="${sortBy=='staff_role'}">${order=='asc' ? '▲' : '▼'}</c:if>
-                                </a>
-                            </th>
-                            <th>
                                 <a href="staff?action=sort&sortBy=staff_name&order=${sortBy=='staff_name' && order=='asc' ? 'desc' : 'asc'}">
                                     Fee Name
                                     <c:if test="${sortBy=='staff_name'}">${order=='asc' ? '▲' : '▼'}</c:if>
@@ -48,12 +42,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="staff" items="${staffs}">
+                        <c:forEach var="staff" items="${staff}">
                             <tr>
                                 <td>${staff.id}</td>
-                                <td>${staff.staff_role}</td>
                                 <td><strong>${staff.staff_name}</strong></td>
-                                <td><a href="salary?id=${staff.id}" class="btn btn-secondary">${staffs.salary.salary_amount}</a></td>
+                                <td><a href="salary?id=${staff.id}" class="btn btn-secondary">${staff.salary.salary_amount}</a></td>
                                     <c:if test="${sessionScope.role eq 'admin'}">
                                         <td>
                                             <div class="actions">

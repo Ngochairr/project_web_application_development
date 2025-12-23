@@ -13,7 +13,7 @@
         <h2>📚 Student Management System</h2>
         <div class="navbar-right">
             <div class="user-info">
-                <span>${sessionScope.fullName}</span>
+                <span>${sessionScope.name}</span>
                 <span class="role-badge role-${sessionScope.role}">
                     ${sessionScope.role}
                 </span>
@@ -59,7 +59,7 @@
                     📋 View All Fees
                 </a>
                 </c:if>
-                <a href="timetable?action=list" class="action-btn action-btn-primary">
+                <a href="timetable" class="action-btn action-btn-primary">
                     📋 View Timetable
                 </a>
                 <a href="Section?action=list" class="action-btn action-btn-primary">

@@ -51,7 +51,7 @@
                 <input type="text" 
                        id="roll" 
                        name="roll" 
-                       value="${student.roll}" 
+                       value="${student.roll_no}" 
                        <c:if test="${student != null}">readonly</c:if> 
                        placeholder="e.g., SV001, IT123">
                 <p class="info-text">Format: 2 letters + 3+ digits</p>
@@ -68,7 +68,7 @@
                 <input type="text" 
                        id="fullName" 
                        name="fullName" 
-                       value="${student.fullName}" 
+                       value="${student.name}" 
                        required 
                        placeholder="Enter full name">
                 <c:if test="${not empty errorName}">

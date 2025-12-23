@@ -20,39 +20,39 @@
                     <thead>
                         <tr>
                             <th>
-                                <a href="fee?action=sort&sortBy=id&order=${sortBy=='id' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="fee?action=sort&sortBy=id&order=${sortBy=='fee_id' && order=='asc' ? 'desc' : 'asc'}">
                                     ID
-                                    <c:if test="${sortBy=='id'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='fee_id'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>
-                                <a href="fee?action=sort&sortBy=student&order=${sortBy=='id' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="fee?action=sort&sortBy=student&order=${sortBy=='student_id' && order=='asc' ? 'desc' : 'asc'}">
                                     Student
-                                    <c:if test="${sortBy=='fee_student'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='student_id'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>
-                                <a href="fee?action=sort&sortBy=fee_name&order=${sortBy=='student_code' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="fee?action=sort&sortBy=name&order=${sortBy=='student_code' && order=='asc' ? 'desc' : 'asc'}">
                                     Fee Name
-                                    <c:if test="${sortBy=='fee_name'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='name'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>
-                                <a href="fee?action=sort&sortBy=fee_value&order=${sortBy=='full_name' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="fee?action=sort&sortBy=value&order=${sortBy=='full_name' && order=='asc' ? 'desc' : 'asc'}">
                                     Fee Value
-                                    <c:if test="${sortBy=='fee_value'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='value'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>
-                                <a href="fee?action=sort&sortBy=fee_expiration&order=${sortBy=='email' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="fee?action=sort&sortBy=expiration&order=${sortBy=='email' && order=='asc' ? 'desc' : 'asc'}">
                                     Expiration
-                                    <c:if test="${sortBy=='fee_expiration'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='expiration'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>
-                                <a href="fee?action=sort&sortBy=fee_paid&order=${sortBy=='major' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="fee?action=sort&sortBy=paid&order=${sortBy=='major' && order=='asc' ? 'desc' : 'asc'}">
                                     Paid
-                                    <c:if test="${sortBy=='fee_paid'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='paid'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>Actions</th>
@@ -61,17 +61,17 @@
                     <tbody>
                         <c:forEach var="fee" items="${fee}">
                             <tr>
-                                <td>${fee.id}</td>
-                                <td>${fee.fee_student}</td>
-                                <td><strong>${fee.fee_name}</strong></td>
-                                <td>${fee.fee_value}</td>
-                                <td>${fee.fee_expiration}</td>
-                                <td>${fee.fee_paid}</td>
+                                <td>${fee.fee_id}</td>
+                                <td>${fee.student_id}</td>
+                                <td><strong>${fee.name}</strong></td>
+                                <td>${fee.value}</td>
+                                <td>${fee.expiration}</td>
+                                <td>${fee.paid}</td>
                                     <c:if test="${sessionScope.role eq 'admin'}">
                                         <td>
                                             <div class="actions">
-                                                <a href="fee?action=edit&id=${fee.id}" class="btn btn-secondary">✏️ Edit</a>
-                                                <a href="fee?action=delete&id=${fee.id}" 
+                                                <a href="fee?action=edit&id=${fee.fee_id}" class="btn btn-secondary">✏️ Edit</a>
+                                                <a href="fee?action=delete&id=${feefee_idid}" 
                                                    class="btn btn-danger" 
                                                    onclick="return confirm('Are you sure?')">🗑️ Delete</a>
                                             </div>

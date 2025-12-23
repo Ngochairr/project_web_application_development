@@ -164,7 +164,7 @@
                     <tbody>
                         <c:forEach var="section" items="${section}">
                             <tr>
-                                <td>${section.id}</td>
+                                <td>${section.idsection}</td>
                                 <td>${section.room_id}</td>
                                 <td>${section.class_id}</td>
                                 <td>${section.start_week}</td>
@@ -176,8 +176,8 @@
                                     <c:if test="${sessionScope.role eq 'admin'}">
                                         <td>
                                             <div class="actions">
-                                                <a href="section?action=edit&id=${section.id}" class="btn btn-secondary">✏️ Edit</a>
-                                                <a href="section?action=delete&id=${section.id}" 
+                                                <a href="section?action=edit&id=${section.idsection}" class="btn btn-secondary">✏️ Edit</a>
+                                                <a href="section?action=delete&id=${section.idsection}" 
                                                    class="btn btn-danger" 
                                                    onclick="return confirm('Are you sure?')">🗑️ Delete</a>
                                             </div>

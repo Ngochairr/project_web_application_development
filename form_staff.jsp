@@ -85,7 +85,7 @@
                        name="staff_salary" 
                        value="${staff.staff_salary}" 
                        required 
-                       placeholder="Enter Full Name">
+                       placeholder="Enter Salary">
                 <c:if test="${not empty errorStaffSalary}">
                     <span class="error">${errorStaffSalary}</span>
                 </c:if>

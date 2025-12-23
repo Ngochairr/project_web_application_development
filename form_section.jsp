@@ -51,7 +51,7 @@
                 <input type="text" 
                        id="sec_id" 
                        name="sec_id" 
-                       value="${section.id}" 
+                       value="${section.idsection}" 
                        <c:if test="${section != null}">readonly</c:if> 
                        placeholder="e.g., SE001, SE123">
                 <p class="info-text">Format: SE + 3 digits</p>
@@ -195,7 +195,7 @@
                         <c:otherwise>➕ Add Section</c:otherwise>
                     </c:choose>
                 </button>
-                <a href="student?action=list" class="btn btn-secondary">❌ Cancel</a>
+                <a href="section?action=list" class="btn btn-secondary">❌ Cancel</a>
             </div>
         </form>
     </div>

@@ -14,11 +14,11 @@
     </head>
     <body>
         <c:forEach var="salary" items="${salaryList}">
-            <c:if test="${salary.staffId == param.id}">
+            <c:if test="${salary.staffId == param.idsalary}">
                 <p>Staff: ${salary.staff_id}</p>
                 <p>Salary ID: ${salary.id}</p>
-                <p>Salary: ${salary.salary_amount}</p>
-                <p>Payment date: ${salary.date}</p>
+                <p>Salary: ${salary.amount}</p>
+                <p>Payment date: ${salary.payment_date}</p>
             </c:if>
         </c:forEach>
         <c:if test="${sessionScope.role eq 'admin'}">

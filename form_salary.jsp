@@ -37,7 +37,7 @@
                 <input type="text" 
                        id="salary_id" 
                        name="salary_id" 
-                       value="${salary.id}" 
+                       value="${salary.idsalary}" 
                        placeholder="e.g., SS001, SS23">
                 <p class="info-text">Format: SS + 3 digits</p>
                 <c:if test="${not empty errorSalaryID}">
@@ -53,7 +53,7 @@
                 <input type="text" 
                        id="salary_staff" 
                        name="salary_staff" 
-                       value="${salary.staffid}" 
+                       value="${salary.staff_id}" 
                        required 
                        placeholder="Enter full name">
                 <c:if test="${not empty errorSalaryStaff}">
@@ -69,7 +69,7 @@
                 <input type="text" 
                        id="salary_amount" 
                        name="salary_amount" 
-                       value="${salary.salary_amount}" 
+                       value="${salary.amount}" 
                        required 
                        >
                 <c:if test="${not empty errorSalaryAmount}">
@@ -84,7 +84,7 @@
                 <input type="text" 
                        id="salary_date" 
                        name="salary_date" 
-                       value="${salary.date}" 
+                       value="${salary.payment_date}" 
                        required 
                        >
                 <c:if test="${not empty errorSalaryDate}">

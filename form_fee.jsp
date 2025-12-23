@@ -68,7 +68,7 @@
                 <input type="text" 
                        id="FeeStudent" 
                        name="FeeStudent" 
-                       value="${fee.student}" 
+                       value="${fee.student_id}" 
                        required 
                        placeholder="Enter full name">
                 <c:if test="${not empty errorFeeStudent}">
@@ -84,7 +84,7 @@
                 <input type="fee_name" 
                        id="fee_name" 
                        name="fee_name" 
-                       value="${fee.fee_name}" 
+                       value="${fee.name}" 
                        required 
                        placeholder="student@example.com">
                 <c:if test="${not empty errorFeeName}">
@@ -99,7 +99,7 @@
                 <input type="fee_value" 
                        id="fee_value" 
                        name="fee_value" 
-                       value="${fee.fee_value}" 
+                       value="${fee.value}" 
                        required 
                        placeholder="student@example.com">
                 <c:if test="${not empty errorFeeValue}">
@@ -114,7 +114,7 @@
                 <input type="fee_expiration" 
                        id="fee_expiration" 
                        name="fee_expiration" 
-                       value="${fee.fee_expiration}" 
+                       value="${fee.expiration}" 
                        required 
                        placeholder="student@example.com">
                 <c:if test="${not empty errorFeeExpiration}">
@@ -130,7 +130,7 @@
                     id="fee_paid"
                     name="fee_paid"
                     value="true"
-                    <c:if test="${fee.fee_paid}">checked</c:if>
+                    <c:if test="${fee.paid}">checked</c:if>
                     required>
                 <c:if test="${not empty errorFeePaid}">
                     <span class="error">${errorFeePaid}</span>

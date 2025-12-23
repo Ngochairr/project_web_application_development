@@ -23,7 +23,7 @@
                             <th>
                                 <a href="staff?action=sort&sortBy=id&order=${sortBy=='id' && order=='asc' ? 'desc' : 'asc'}">
                                     ID
-                                    <c:if test="${sortBy=='id'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='staff_id'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>
@@ -33,9 +33,9 @@
                                 </a>
                             </th>
                             <th>
-                                <a href="staff?action=sort&sortBy=salary_amount&order=${sortBy=='salary_amount' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="staff?action=sort&sortBy=salary_amount&order=${sortBy=='amount' && order=='asc' ? 'desc' : 'asc'}">
                                     StafF Salary Value
-                                    <c:if test="${sortBy=='salary_amount'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='amount'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>Actions</th>
@@ -46,11 +46,10 @@
                             <tr>
                                 <td>${staff.id}</td>
                                 <td><strong>${staff.staff_name}</strong></td>
-                                <td><a href="salary?id=${staff.id}" class="btn btn-secondary">${staff.salary.salary_amount}</a></td>
+                                <td><a href="salary?id=${staff.staff_id}" class="btn btn-secondary">${staff.salary.salary_amount}</a></td>
                                     <c:if test="${sessionScope.role eq 'admin'}">
                                         <td>
                                             <div class="actions">
-                                                <a href="timetable?action=edit&id=${staff.id}" class="btn btn-secondary">View Classes</a>
                                                 <a href="staff?action=edit&id=${staff.id}" class="btn btn-secondary">✏️ Edit</a>
                                                 <a href="staff?action=delete&id=${staff.id}" 
                                                    class="btn btn-danger" 

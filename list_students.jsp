@@ -111,9 +111,9 @@
                             </th>
                             </th>
                             <th>
-                                <a href="student?action=sort&sortBy=fullName&order=${sortBy=='fullName' && order=='asc' ? 'desc' : 'asc'}">
+                                <a href="student?action=sort&sortBy=fullName&order=${sortBy=='name' && order=='asc' ? 'desc' : 'asc'}">
                                     Name
-                                    <c:if test="${sortBy=='fullName'}">${order=='asc' ? '▲' : '▼'}</c:if>
+                                    <c:if test="${sortBy=='name'}">${order=='asc' ? '▲' : '▼'}</c:if>
                                 </a>
                             </th>
                             <th>Actions</th>
@@ -123,12 +123,12 @@
                         <c:forEach var="student" items="${student}">
                             <tr>
                                 <td>${student.roll}</td>
-                                <td>${student.fullName}</td>
+                                <td>${student.name}</td>
                                     <c:if test="${sessionScope.role eq 'admin'}">
                                         <td>
                                             <div class="actions">
-                                                <a href="student?action=edit&id=${student.id}" class="btn btn-secondary">✏️ Edit</a>
-                                                <a href="student?action=delete&id=${student.id}" 
+                                                <a href="student?action=edit&id=${student.roll}" class="btn btn-secondary">✏️ Edit</a>
+                                                <a href="student?action=delete&id=${student.roll}" 
                                                    class="btn btn-danger" 
                                                    onclick="return confirm('Are you sure?')">🗑️ Delete</a>
                                             </div>
